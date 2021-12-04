@@ -1,0 +1,57 @@
+<div class="box record_detail_box">
+  <div class="box-header">
+    <div class="listHeaderContainer center" >
+      <h3 class="box-title">Listing Products</h3>
+      <a href="<%= new_vendor_product_path %>" class="btn btn-sm btn-flat bg-olive pull-right new_record_button"><i class="fa fa-plus-square"></i> New Product</a>
+    </div>
+  </div><!-- /.box-header -->
+  <div class="box-body no-padding">
+
+    <div class="row">
+      <div class="col-md-6 margin listing-form-control">
+        
+        <%#= search_form_for [@search], class: 'form-inline' do |f| %>
+
+            <%#- locals = {:f => f} %>
+
+            <div class="form-group">
+              <div class="field">
+                <%#= f.text_field :title_cont, placeholder: 'Title', :size => 15, class: 'form-control' %>
+              </div>
+            </div>
+
+
+            <%#= button_to "Search", 'search', class: 'btn btn-sm btn-primary not-cleared' %>
+        <%# end %>
+      </div>
+    </div>
+
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Category</th>
+          <th>By</th>
+          <th colspan="3" class="text-center">Actions</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @collection.each do |product| %>
+          <tr>
+            <td><%= product.name %></td>
+            <td><%= product.category.name %></td>
+
+            <td><%= product.user.email %></td>
+            <td><%= link_to 'Show', vendor_product_path(product) %></td>
+            <% if current_user == product.user %>
+              <td><%= link_to 'Edit', edit_vendor_product_path(product) %></td>
+              <td><%= link_to 'delete', vendor_product_path(product), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <% end %>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+
+  </div>
+</div>

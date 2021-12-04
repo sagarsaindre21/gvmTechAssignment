@@ -1,0 +1,397 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+
+
+@import "bootstrap/scss/bootstrap";
+
+body, html {
+    min-height: 100%;
+    position: relative;
+}
+body {
+    font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 13px;
+    color: #666666;
+    font-weight:500;
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.53846154;
+    /*background: url("../images/bedge_grunge_light.jpg") repeat;*/
+}
+:focus { outline: 0 none !important; }
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 600;
+    color:#272727
+}
+h1 { font-size: 30px; }
+h2 { font-size: 24px; }
+h3 { font-size: 16px; }
+h4 { font-size: 14px; }
+h5 { font-size: 12px; }
+h6 { font-size: 10px; }
+h3, h4, h5 {
+    margin-top: 5px;
+    font-weight: 600;
+}
+strong { font-weight: 600; }
+a {
+    color: #363f44;
+    cursor: pointer;
+    -webkit-transition: All 0.5s ease;
+    -moz-transition: All 0.5s ease;
+    -ms-transition: All 0.5s ease;
+    -o-transition: All 0.5s ease;
+    transition: All 0.5s ease;
+    text-decoration: none;
+}
+a:hover, a:focus {
+    color: #141719;
+    text-decoration: none !important;
+}
+label { font-weight: normal; }
+small, .small { font-size: 13px; }
+ul { padding-left:0; }
+.container { max-width: 1000px; }
+/* Header */  
+.navbar {
+    border-radous:0;
+    border:0;
+    margin:0;
+    padding: 0;
+}
+.header-inner {
+    width: 100%;
+    position: reltive;
+    z-index: 999;
+    background-color: #fff;
+    -webkit-box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1), 0 1px 0 0 rgba(0, 0, 0, 0.06);
+    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1), 0 1px 0 0 rgba(0, 0, 0, 0.06);
+    -webkit-transform: translate3d(0, 0, 0);
+    -moz-transform: translate3d(0, 0, 0);
+    -ms-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    -webkit-transition: a;
+    transition: all 2s;
+}
+.row {
+    margin-right: 0;
+}
+.top-line {
+    padding: 10px 0;
+    background: #666;
+    transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    -webkit-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+    overflow: hidden;
+}
+.top-line p, .top-line a {
+    color: #ffffff;
+    margin: 0;
+}
+.top-line p span { margin-right: 20px; }
+.top-line p span i {
+    font-size: 13px;
+    color:#fff;
+    margin-right: 10px;
+}
+.top-line ul.social-icons {
+    margin: 0;
+    padding: 0;
+    text-align: right;
+}
+.top-line ul.social-icons li {
+    display: inline-block;
+    margin-left: 9px;
+}
+.top-line ul.social-icons li a {
+    display: inline-block;
+    text-decoration: none;
+    transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    -webkit-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+    font-size: 14px;
+    color: #ffffff;
+}
+.top-line ul.social-icons li a:hover { color: #ffba00; }
+header.active .top-line {
+    height: 0;
+    padding: 0;
+}
+/*** Brand logo ***/
+
+.brand {
+    width: 200px;
+    height: 90px;
+}
+.brand a { display:block }
+.brand, .header-inner .main-nav {
+    display: table-cell;
+    vertical-align: middle;
+}
+/*** Main Nav Menu ***/
+.main-nav {
+    text-align: right;
+    white-space: nowrap;
+    padding: 0 0 0 30px;
+    width:100%;
+}
+.sf-menu, .sf-menu * {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.main-nav .sf-menu li { position: relative; }
+.main-nav .sf-menu li:hover, .sf-menu li.sfHover {
+    -webkit-transition: none;
+    transition: none;
+}
+.main-nav .sf-menu li a {
+    color: #666;
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 90px;
+    padding: 0 15px;
+    position: relative;
+    text-transform: capitalize;
+}
+.main-nav .sf-menu li.current a { color: #424E75; }
+.main-nav .sf-menu li.current ul a { color: #424E75; }
+.main-nav .sf-menu li ul li.current a { color: #424E75; }
+.main-nav .sf-menu ul {
+    background-color: #fff;
+    position: absolute;
+    z-index: 6000;
+    display: none;
+    min-width: 12em; /* allow long menu items to determine submenu width */
+ *width: 12em; /* no auto sub width for IE7, see white-space comment below */
+    top: 99%;
+    left: 0;
+    z-index: 99;
+    margin: 1px 0;
+    padding: 0;
+    border-top: solid 2px #c44741;
+    background-color: #fff;
+    -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, .05);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, .05);
+}
+.main-nav .sf-menu > li { display: inline-block; }
+.main-nav .sf-menu li:hover > ul, .main-nav .sf-menu li.sfHover > ul { display: block; }
+.main-nav .sf-menu a {
+    display: block;
+    position: relative;
+}
+.main-nav .sf-menu a:hover { color: #c44741; }
+.main-nav .sf-menu ul li {
+    width: 180px;
+    background: #fff;
+    text-align: left;
+    border-left: solid 1px #ddd;
+    border-right: solid 1px #ddd;
+    border-bottom: solid 1px #ddd;
+}
+.main-nav .sf-menu ul li a {
+    padding: 10px 15px;
+    font-size: 13px;
+}
+.main-nav .sf-menu ul ul {
+    top: 0;
+    left: 100%;
+}
+.main-nav .sf-menu ul ul li {
+    background: #fff;
+    border-left: solid 1px #eee;
+}
+/*** arrows (for all except IE7) **/
+.sf-arrows .sf-with-ul { padding-right: 2.5em; *padding-right: 1em; /* no CSS arrows for IE7 (lack pseudo-elements) */
+}
+.sf-arrows > li > .sf-with-ul:focus:after, .sf-arrows > li:hover > .sf-with-ul:after, .sf-arrows > .sfHover > .sf-with-ul:after { border-top-color: white; /* IE8 fallback colour */ }
+.sf-arrows ul li > .sf-with-ul:focus:after, .sf-arrows ul li:hover > .sf-with-ul:after, .sf-arrows ul .sfHover > .sf-with-ul:after { border-left-color: #999; }
+.header-inner #toggle-btn {
+    cursor: pointer;
+    font-size: 17px;
+    height: 45px;
+    line-height: 45px;
+    position: absolute;
+    right: 15px;
+    text-align: center;
+    top: 20px;
+    width: 45px;
+}
+.header-inner .toggle-subarrow { display: none; }
+
+.horizontal-center {
+  text-align: center;
+}
+.table {
+  display: table;
+}
+.table-row {
+  display: table-row;
+}
+.vertical-center {
+  position: relative;
+  display: table-cell;
+  vertical-align: middle;
+}
+
+/* Navbar */
+#navbar {
+  margin-bottom: 0;
+  font-family: 'ubuntu';
+}
+
+/* Page title */
+.bg {
+  position: absolute; 
+  top: -50%; 
+  left: -50%; 
+  width: 200%; 
+  height: 200%;
+}
+.bg img {
+  position: absolute; 
+  top: 0; 
+  left: 0; 
+  right: 0; 
+  bottom: 0; 
+  margin: auto; 
+  min-width: 50%;
+  min-height: 50%;
+}
+#page-title {
+  position: relative;
+  width: 100%;
+  color: white;
+  background-color: #1f4a6f;
+  font-family: 'ubuntu';
+  overflow: hidden;
+}
+#title-image {
+  filter:alpha(opacity=80);
+  opacity: 0.8;
+  -moz-opacity:0.8;
+}
+#page-title .container {
+  min-height: 350px;
+  display: table;
+}
+#page-title .article-title, #page-title .article-subtitle {
+  text-shadow: 0px 0px 40px black;
+}
+
+/* Article */
+article {
+  font-family: 'roboto';
+  font-size: 1.1em;
+}
+article h2, article h3 {
+  font-family: 'ubuntu'
+}
+.author {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+.author-image {
+  margin-right: 10px;
+  -webkit-border-radius: 100%;
+  -moz-border-radius: 100%;
+  border-radius: 100%;
+}
+.author-name {
+  font-size: 1.3em;
+}
+
+/* Pager */
+.pager {
+  font-family: 'ubuntu';
+}
+
+/* Footer */
+footer {
+  background-color: #1f4a6f;
+  margin-bottom: 0;
+  color: white;
+  font-family: 'roboto';
+  padding: 2% 2%;
+}
+footer h2, footer h3 {
+  font-family: 'ubuntu';
+}
+footer a {
+  color: #70a7d7;
+}
+footer a:hover {
+  color: #337ab7;
+}
+*{
+  margin: 0 auto;
+  padding: 0;
+  box-sizing: border-box;
+  /*font-family: 'Montserrat', sans-serif;*/
+}
+.background{
+  position: relative;
+  background: #4A4AE4;
+  width: 300px;
+  border-radius: 10px;
+}
+.sign-in{
+  width: 45%;
+  background:#FFFFFF;
+  left: -30%;
+  top: 10%;
+  border-radius: 10px;
+      margin: 6% auto;
+
+}
+.title{
+  padding: 30px;
+  font-weight: 600;
+  font-size: 25px;
+}
+.form{
+  padding-left: 30px;
+}
+
+.input{
+  border-radius: 3px;
+  font-size: 130%;
+  padding: 12px;
+  color: #7C7B8C;
+}
+.signin{
+  background-color: #4A4AE4;
+  color: #fff;
+  border: 0;
+  padding: 10px 30px;
+  border-radius: 50px;
+}
+.btn-login {
+ margin: 5% 4%;
+}
+.nav-links {
+  padding: 0% 0% 6%;
+
+}
+.cancel-btn {
+  background-color: #bb2d3b
+}
+.cancel-account {
+  padding: 5%;
+}
