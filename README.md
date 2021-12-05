@@ -36,7 +36,11 @@ rails s
 And now you can visit the site with the URL http://localhost:3000
 
 
-##### Screenshots![LandingPage](https://user-images.githubusercontent.com/81550057/144756572-a131c2a0-146d-44ea-9dcb-5cdb700fa839.png)
+##### Screenshots
+
+
+
+![LandingPage](https://user-images.githubusercontent.com/81550057/144756572-a131c2a0-146d-44ea-9dcb-5cdb700fa839.png)
 ![LoginPage](https://user-images.githubusercontent.com/81550057/144756573-afab4ce2-b1e2-4ecd-ac2a-87e06eb5bf07.png)
 ![NewProductForm](https://user-images.githubusercontent.com/81550057/144756575-9a210892-4850-409e-a49e-56b53698a26f.png)
 ![OrderDetails](https://user-images.githubusercontent.com/81550057/144756576-f69e9eae-1d2c-44cd-9729-63cacfbb53a3.png)
