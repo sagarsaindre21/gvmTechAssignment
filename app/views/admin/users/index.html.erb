@@ -1,0 +1,39 @@
+<%= javascript_pack_tag 'cart-operation' %>
+
+<div class="box record_detail_box">
+  <div class="box-header">
+    <div class="listHeaderContainer center" >
+      <h3 class="box-title">Listing Users</h3>
+    </div>
+  </div>
+  <div class="box-body no-padding">
+    <div class="row">
+      <div class="col-md-6 margin listing-form-control">
+        <div class="form-group">
+          <div class="field">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Role</th>
+          <th colspan="3" class="text-center">Actions</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @users.each do |user| %>
+          <tr>
+            <td><%= user.email %></td>
+            <td><%= user.role.name %></td>
+            <td class="make-vendor" data-user-id=<%= user.id %>>Make Vendor</td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

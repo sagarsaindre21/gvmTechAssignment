@@ -19,9 +19,6 @@ categories.each do |category|
 	Category.find_or_create_by(name: category)
 end
 
-Currency.create!(code: '$')
-
-
 User.create!(email: "admin@gmail.com",
              password:              "admin@123",
              password_confirmation: "admin@123",

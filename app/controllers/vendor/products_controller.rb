@@ -1,9 +1,11 @@
+#Vendor::ProductsController
 class Vendor::ProductsController < VendorsController
 	before_action :set_product, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, except: [:show, :index]
+  before_action :authenticate_user!
 
 	def index
-	  @collection = Vendor::Product.all
+	  @collection = Vendor::Product.where(user_id: current_user.id)
 	end
 
 	def new

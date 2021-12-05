@@ -1,0 +1,50 @@
+<%= javascript_pack_tag 'cart-operation' %>
+
+<div class="box record_detail_box">
+  <div class="box-header">
+    <div class="listHeaderContainer center" >
+      <h3 class="box-title">Order Details</h3>
+    </div>
+  </div>
+  <div class="box-body no-padding">
+    <div class="row">
+      <div class="col-md-6 margin listing-form-control">
+        <div class="form-group">
+          <div class="field">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      Total Amount: <%= @order.amount %>
+    </div>
+     <div>
+      Total Items: <%= @line_items.map(&:quantity).sum %>
+    </div>
+
+    <table class="table table-bordered">
+
+      <thead>
+        <tr>
+          <th>Quantity</th>
+          <th>Amount</th>
+          <th>Product Name</th>
+          <th>Product Category</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @line_items.each do |order| %>
+          <tr>
+            <td><%= order.quantity %></td>
+            <td><%= order.amount %></td>
+            <td><%= order.product.name %></td>
+            <td><%= order.product.category.name %></td>
+            <td></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

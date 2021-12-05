@@ -1,43 +1,43 @@
-<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
+<%= javascript_pack_tag 'cart-operation' %>
+
+<div class="main">
+  <div class="cart-btn">
+    <a href="#" class="cart"><span></span></a>
+    <svg version="1.1" class="arrow-icon" x="0px" y="0px"
+       width="43.737px" height="20px" viewBox="91.602 355.81 43.737 20" enable-background="new 91.602 355.81 43.737 20"
+       xml:space="preserve">
+      <path fill="#FFFFFF" d="M135.271,367.059l0.003-0.004c0,0-0.004-0.011-0.013-0.031c-0.013-0.034-0.031-0.066-0.047-0.099
+      c-0.036-0.071-0.089-0.165-0.167-0.278c-0.087-0.152-0.193-0.288-0.323-0.398c-0.134-0.142-0.297-0.291-0.496-0.438
+      c-0.812-0.601-2.354-1.611-2.354-1.611l-0.003,0.002c-4.075-3.042-8.143-5.811-12.747-8.236c-1.404-0.739-2.59,1.368-1.203,2.157
+      c3.747,2.133,7.099,4.48,10.398,7.033c-5.68-0.152-11.391,0.137-17.049,0.524c-3.574,0.244-7.146,0.567-10.707,0.949
+      c-2.722,0.292-5.863,0.299-8.465,1.171c-0.756,0.253-0.616,1.331,0.185,1.374c2.904,0.157,6.049-0.513,8.961-0.709
+      c3.465-0.232,6.933-0.389,10.403-0.516c5.564-0.203,11.163-0.353,16.731-0.064c-4.195,1.61-8.221,3.378-12.263,5.646
+      c-1.393,0.782-0.148,2.855,1.255,2.127c5.506-2.858,10.946-4.785,16.846-6.652c0.605-0.192,0.928-0.63,1.032-1.117
+      C135.352,367.62,135.365,367.333,135.271,367.059z"/>
+    </svg><!-- /.arrow-icon -->
+    
+    <svg version="1.1" class="cart-icon" x="0px" y="0px"
+       width="27.911px" height="28px" viewBox="313.963 302.125 27.911 28" enable-background="new 313.963 302.125 27.911 28"
+       xml:space="preserve">
+      <path fill="#FFFFFF" d="M341.263,311.6c-0.551-0.683-1.378-1.075-2.271-1.075h-3.919v-1.4c0.006-3.858-3.23-7-7.198-7
+      s-7.204,3.142-7.204,7v1.4h-3.913c-0.893,0-1.72,0.391-2.271,1.075c-0.551,0.683-0.739,1.56-0.524,2.403l3.599,14
+      c0.32,1.251,1.472,2.122,2.794,2.122h15.036c1.323,0,2.475-0.871,2.794-2.122l3.599-14
+      C342.002,313.16,341.814,312.289,341.263,311.6z M323.554,309.125c0-2.315,1.94-4.2,4.321-4.2s4.321,1.885,4.321,4.2v1.4h-8.643
+      V309.125z M335.393,327.325h-15.036l-3.599-14h3.919v2.8c0,0.772,0.645,1.4,1.439,1.4s1.439-0.628,1.439-1.4v-2.8h8.643v2.8
+      c0,0.772,0.645,1.4,1.439,1.4s1.439-0.628,1.439-1.4v-2.8h3.919L335.393,327.325z"/>
+    </svg>
+  </div>
+</div>
 
 <div id="wrapper">
-  <div class="cart-icon-top">
-  </div>
-
-  <div class="cart-icon-bottom">
-  </div>
-
-  <div id="checkout">
-  	CHECKOUT
-  </div>
-
   <div id="sidebar">
-    <h3>CART</h3>
     <div id="cart">
-    <% if @cart_items.present? %>
-      <% @cart_items.each do |cart_item| %>
-        <div class='cart-item'>
-          <div class='img-wrap'>
-            <img src="#" alt='' />
-          </div>
-          <span><%= cart_item.product.name %></span>
-          <strong><%= cart_item.product.price %>$</strong>
-
-          <div class='cart-item-border'></div>
-          <div class='delete-item' data-cart-id=<%= cart_item.id %>></div>
-        </div>
-      <% end %>
-    <% else %>
-      <span class="empty">No items in cart.</span>       
-    <% end %>
     </div>
-
-
     <h3>CATEGORIES</h3>
     <div class="checklist categories">
       <ul>
         <% @categories.each do |category| %>
-          <li><a href="" class="product-categories checked" data-category-id="<%= category.id %>"><span></span><%= category.name %></a></li>
+          <li><a href="" class="product-categories" data-category-id="<%= category.id %>"><span></span><%= category.name %></a></li>
         <% end %>
       </ul>
     </div>
@@ -48,6 +48,63 @@
   </div>
 </div>
 
-<div class="cart-items-list"></div>
+<body class="cart-drawer-push">
+  <div class="container">
+    <div class="cart-drawer cart-drawer-right"> 
+      <span>Your Cart</span>
+      <div class="close-btn">
+        <svg version="1.1" class="close-icon" x="0px" y="0px"
+           width="18px" height="18px" viewBox="312 387 18 18" enable-background="new 312 387 18 18" xml:space="preserve">
+          <path fill="#E55959" d="M312.54,404.46c0.36,0.36,0.84,0.54,1.26,0.54c0.42,0,0.9-0.18,1.26-0.54l5.94-5.94l5.94,5.94
+          c0.36,0.36,0.84,0.54,1.26,0.54c0.42,0,0.9-0.18,1.26-0.54c0.72-0.72,0.72-1.86,0-2.52l-5.94-5.94l5.94-5.94
+          c0.72-0.72,0.72-1.86,0-2.52c-0.72-0.72-1.86-0.72-2.52,0l-5.94,5.94l-5.94-5.94c-0.72-0.72-1.86-0.72-2.52,0
+          c-0.72,0.72-0.72,1.86,0,2.52l5.94,5.94l-5.94,5.94C311.82,402.66,311.82,403.8,312.54,404.46z"/>
+        </svg>
+      </div>
 
-<!-- Modal HTML embedded directly into document -->
+      <div id="ex1" style="height: 95%;overflow-y: scroll;">
+        <% if @cart_items.present? %>
+          <form id="checkout-order-form">
+            <div class="">
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th>Product Name</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th>Total Cost</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <% @cart_items.each_with_index do |cart_item, index| %>
+                    <tr class="cart-item">
+                      <input type="hidden" name="cart_item[<%= index %>]product_id" value=<%= cart_item.product.id %>>
+
+                      <input type="hidden" value=<%= cart_item.product.price %>>
+
+                      <td><span><%= cart_item.product.name %></span></td>
+                      <td><span class="price" data-value=<%= cart_item.product.price %>><%= cart_item.product.price %></span></td>
+                      <td><input type="number" name="cart_item[<%= index %>]quantity" value=1 class="qty"></td>
+                      <td><input type="number" name="cart_item[<%= index %>]amount"class="item-total" value="<%= cart_item.product.price %>" data-item-value=<%= cart_item.product.price %>></td>
+                    </tr>
+                  <% end %>
+                </tbody>
+              </table>
+
+              <div class="" style="float: right;">
+                <label>Total: </label> <strong><span class="total">0.0</span></strong>
+              </div>
+            </div>
+          <% else %>
+              <span class="empty">No items in cart.</span>
+          <% end %>
+
+          <div class="" style="margin-top: 60px;">
+            <button class="btn btn-sm btn-primary place-your-order">Place Your Order</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</body>
+
